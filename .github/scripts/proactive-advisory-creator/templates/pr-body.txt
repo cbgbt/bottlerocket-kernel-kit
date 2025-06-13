@@ -1,0 +1,6 @@
+This PR adds proactive security advisories for kernel updates in version ${KIT_VERSION}.
+
+The following kernel packages were updated since ${PREVIOUS_VERSION}:
+${KERNEL_UPDATES}
+
+🤖 These advisories were automatically generated 🤖
