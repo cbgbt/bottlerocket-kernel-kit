@@ -1,0 +1,1 @@
+advisories: add proactive kernel security advisories for ${KIT_VERSION}

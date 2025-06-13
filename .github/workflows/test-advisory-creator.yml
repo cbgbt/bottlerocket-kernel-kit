@@ -1,0 +1,27 @@
+name: Test Proactive Advisory Creator
+on:
+  pull_request:
+    paths:
+      - ".github/scripts/proactive-advisory-creator/**"
+
+jobs:
+  test-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+
+      - name: Run tests
+        run: |
+          .github/scripts/proactive-advisory-creator/advisory-creator-tests.sh
+        # The test script should exit with non-zero status if any tests fail,
+        # which will cause the workflow to fail automatically
+
+      - name: Shellcheck
+        run: shellcheck -x .github/scripts/proactive-advisory-creator/advisory-creator.sh
